@@ -19,10 +19,10 @@ class MethodGenerator {
   // Function to generate setter for a given type and variable name
   String _generateSetter(Type type, String varName) {
     String methodName =
-        "mcfn_set" + _capitalizeFirstLetter(_extractAfterUnderscore(varName));
+        "mcfn_set${_capitalizeFirstLetter(_extractAfterUnderscore(varName))}";
     switch (type) {
       case Type.string:
-        return "void $methodName(String pscL_${_extractAfterUnderscore(varName)}) { $varName = pscL_${_extractAfterUnderscore(varName)}; }\n";
+        return "void $methodName(String CL_${_extractAfterUnderscore(varName)}) { $varName = CL_${_extractAfterUnderscore(varName)}; }\n";
       case Type.char:
         return "void $methodName(char scL_${_extractAfterUnderscore(varName)}) { $varName = scL_${_extractAfterUnderscore(varName)}; }\n";
       case Type.charArray:
@@ -45,7 +45,7 @@ class MethodGenerator {
   // Function to generate getter for a given type and variable name
   String _generateGetter(Type type, String varName) {
     String methodName =
-        "mcfn_get" + _capitalizeFirstLetter(_extractAfterUnderscore(varName));
+        "mcfn_get${_capitalizeFirstLetter(_extractAfterUnderscore(varName))}";
     switch (type) {
       case Type.string:
         return "String $methodName() { return $varName; }\n";
