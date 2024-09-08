@@ -78,7 +78,6 @@ class MethodGenerator {
     }
 
     // Generate Getter functions
-    sb.writeln("\n");
     for (var varEntry in variables) {
       sb.write(_generateGetter(varEntry.key, varEntry.value));
     }
