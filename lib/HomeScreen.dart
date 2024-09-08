@@ -1,6 +1,7 @@
 import 'package:GetterSetter/Method.dart';
 import 'package:GetterSetter/Widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,9 +13,68 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Method method = Method();
+  final TextEditingController inputController = TextEditingController();
+  final TextEditingController outputController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
+  }
+
+  void copyToClipboard() {
+    Clipboard.setData(ClipboardData(text: outputController.text));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Color.fromARGB(255, 7, 16, 31),
+        content: Text(
+          'Copied to clipboard!',
+          style: TextStyle(
+            color: Color(0xffffa8b2d1),
+            fontSize: 13.0,
+            letterSpacing: 2.75,
+            wordSpacing: 0.75,
+          ),
+        ),
+      ),
+    );
+  }
+
+  void generateGetterSetter() {
+    // Example logic for generating getters and setters (to be expanded):
+
+    if (inputController.text.isEmpty) {
+      // Show a Snackbar if the input is empty
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Color.fromARGB(255, 7, 16, 31),
+          content: Text(
+            'Input is empty. Please provide valid input.',
+            style: TextStyle(
+              color: Color(0xffffa8b2d1),
+              fontSize: 13.0,
+              letterSpacing: 2.75,
+              wordSpacing: 0.75,
+            ),
+          ),
+        ),
+      );
+      return; // Exit the function early
+    }
+    String generatedCode = '''
+    // Example Getter and Setter for input:
+    class Example {
+      int _value;
+    
+      int getValue() {
+        return _value;
+      }
+    
+      void setValue(int val) {
+        _value = val;
+      }
+    }
+    ''';
+    outputController.text = generatedCode;
   }
 
   @override
@@ -55,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                           child: Container(
                             margin: const EdgeInsets.all(0.85),
                             height: size.height * 0.07,
-                            width: size.height * 0.20,
+                            width: size.height * 0.30,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               color: const Color(0xff0A192F),
@@ -71,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  "SourceCode",
+                                  "Source Code",
                                   style: TextStyle(
                                     color: Color(0xff64FFDA),
                                   ),
@@ -161,65 +221,169 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       const CustomText(
                                         text: "GetterSetter.",
-                                        textsize: 30.0,
+                                        textsize: 40.0,
                                         color: Color(0xffCCD6F6),
                                         fontWeight: FontWeight.w900,
                                       ),
-
                                       SizedBox(
-                                        height: size.height * .04,
+                                        height: size.height * .03,
                                       ),
-                                      const Wrap(
+                                      Row(
                                         children: [
-                                          Text(
-                                            "I'm a freelancer based in Nashik, IN specializing in \nbuilding (and occasionally designing) exceptional websites, \napplications, and everything in between.",
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 16.0,
-                                              letterSpacing: 2.75,
-                                              wordSpacing: 0.75,
+                                          // Left Side: Input Text Editor
+                                          Expanded(
+                                            flex: 2,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                TextField(
+                                                  controller: inputController,
+                                                  maxLines: 11,
+                                                  style: const TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 2.75,
+                                                    wordSpacing: 0.75,
+                                                  ),
+                                                  decoration: InputDecoration(
+                                                    filled: true,
+                                                    fillColor: Colors.black12,
+                                                    hintText:
+                                                        'Enter class varibles..',
+                                                    hintStyle: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 2.75,
+                                                      wordSpacing: 0.75,
+                                                    ),
+                                                    border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      borderSide:
+                                                          BorderSide.none,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: size.height * 0.02,
+                                                ),
+                                                InkWell(
+                                                  onTap: generateGetterSetter,
+                                                  hoverColor:
+                                                      const Color(0xff64FFDA)
+                                                          .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                  child: Container(
+                                                    alignment: Alignment.center,
+                                                    height: size.height * 0.07,
+                                                    width: size.width * 0.13,
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                        color: const Color(
+                                                            0xff64FFDA),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                    child: const Text(
+                                                      "Proceed",
+                                                      style: TextStyle(
+                                                        color:
+                                                            Color(0xff64FFDA),
+                                                        letterSpacing: 2.75,
+                                                        wordSpacing: 1.0,
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          )
+                                          ),
+                                          const VerticalDivider(
+                                              width: 10,
+                                              color: Colors.transparent),
+                                          // Right Side: Output Code Editor
+                                          Expanded(
+                                            flex: 2,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                TextField(
+                                                  controller: outputController,
+                                                  maxLines: 11,
+                                                  style: const TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 2.75,
+                                                    wordSpacing: 0.75,
+                                                  ),
+                                                  decoration: InputDecoration(
+                                                    filled: true,
+                                                    fillColor: Colors.black12,
+                                                    hintText:
+                                                        'Getter Setter functions...',
+                                                    hintStyle: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 2.75,
+                                                      wordSpacing: 0.75,
+                                                    ),
+                                                    border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      borderSide:
+                                                          BorderSide.none,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: size.height * 0.02,
+                                                ),
+                                                InkWell(
+                                                  onTap: copyToClipboard,
+                                                  hoverColor:
+                                                      const Color(0xff64FFDA)
+                                                          .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                  child: Container(
+                                                    alignment: Alignment.center,
+                                                    height: size.height * 0.07,
+                                                    width: size.width * 0.13,
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                        color: const Color(
+                                                            0xff64FFDA),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                    child: const Text(
+                                                      "Copy",
+                                                      style: TextStyle(
+                                                        color:
+                                                            Color(0xff64FFDA),
+                                                        letterSpacing: 2.75,
+                                                        wordSpacing: 1.0,
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ],
-                                      ),
-                                      SizedBox(
-                                        height: size.height * .12,
-                                      ),
-
-                                      //get in tuch text
-                                      InkWell(
-                                        onTap: () {
-                                          method.launchEmail();
-                                        },
-                                        hoverColor: const Color(0xff64FFDA)
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          height: size.height * 0.09,
-                                          width: size.width * 0.14,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: const Color(0xff64FFDA),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
-                                          ),
-                                          child: const Text(
-                                            "Get In Touch",
-                                            style: TextStyle(
-                                              color: Color(0xff64FFDA),
-                                              letterSpacing: 2.75,
-                                              wordSpacing: 1.0,
-                                              fontSize: 15.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-
-                                      SizedBox(
-                                        height: size.height * 0.20,
                                       ),
                                     ],
                                   ),
