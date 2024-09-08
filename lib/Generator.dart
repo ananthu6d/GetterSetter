@@ -81,7 +81,6 @@ class MethodGenerator {
     for (var varEntry in variables) {
       sb.write(_generateGetter(varEntry.key, varEntry.value));
     }
-
     return sb.toString();
   }
 
