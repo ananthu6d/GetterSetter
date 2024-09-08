@@ -41012,7 +41012,7 @@ return a},
 HG(a){if(a.length===0)return a
 return a[0].toUpperCase()+B.d.dV(a,1)},
 a_T(a,b){var s=this,r="mcfn_set"+s.HG(s.eb(b))
-switch(a.a){case 0:return"void "+r+"(String pscL_"+s.eb(b)+") { "+b+" = pscL_"+s.eb(b)+"; }\n"
+switch(a.a){case 0:return"void "+r+"(String CL_"+s.eb(b)+") { "+b+" = CL_"+s.eb(b)+"; }\n"
 case 1:return"void "+r+"(char scL_"+s.eb(b)+") { "+b+" = scL_"+s.eb(b)+"; }\n"
 case 7:return"void "+r+"(char* pscL_"+s.eb(b)+") { strcpy("+b+", pscL_"+s.eb(b)+"); }\n"
 case 2:return"void "+r+"(int siL_"+s.eb(b)+") { "+b+" = siL_"+s.eb(b)+"; }\n"
@@ -82793,7 +82793,7 @@ B.Qj=new A.hr("Copied to clipboard!",null,B.kq,null,null,null,null,null,null)
 B.ig=new A.o(4278652959)
 B.iR=new A.aE(4e6)
 B.Ll=new A.jD(B.Qj,B.ig,null,null,null,null,null,null,null,null,null,null,null,B.iR,null,null,null,B.a8,null)
-B.Qi=new A.hr("Input is empty. Please provide valid input.",null,B.kq,null,null,null,null,null,null)
+B.Qi=new A.hr("Input is empty. Please provide valid input!",null,B.kq,null,null,null,null,null,null)
 B.Lm=new A.jD(B.Qi,B.ig,null,null,null,null,null,null,null,null,null,null,null,B.iR,null,null,null,B.a8,null)
 B.Qf=new A.hr("Invalid Input!",null,B.kq,null,null,null,null,null,null)
 B.Ln=new A.jD(B.Qf,B.ig,null,null,null,null,null,null,null,null,null,null,null,B.iR,null,null,null,B.a8,null)
