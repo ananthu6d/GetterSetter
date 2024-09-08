@@ -2,7 +2,7 @@ import 'package:GetterSetter/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
               seedColor: const Color.fromARGB(255, 19, 0, 52)),
           useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

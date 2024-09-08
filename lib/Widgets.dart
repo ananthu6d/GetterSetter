@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppBarTitle extends StatelessWidget {
   final String text;
+  final VoidCallback? ontab;
 
-  const AppBarTitle({
-    super.key,
-    required this.text,
-    /*@required this.ontab*/
-  });
+  const AppBarTitle({super.key, required this.text, this.ontab});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: ontab,
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 14.0,
+          vertical: 1.0,
         ),
         child: Text(
           text,
@@ -37,6 +35,7 @@ class CustomText extends StatelessWidget {
   final FontWeight? fontWeight;
 
   const CustomText({
+    super.key,
     required this.text,
     required this.textsize,
     required this.color,

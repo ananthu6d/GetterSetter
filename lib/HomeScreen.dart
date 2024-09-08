@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,15 +21,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color(0xff0A192F),
+        backgroundColor: const Color(0xff0A192F),
         body: SingleChildScrollView(
-          physics: ScrollPhysics(),
+          physics: const ScrollPhysics(),
           primary: true,
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              //Mavigation Bar
-              Container(
+              //Navigation Bar
+              SizedBox(
                 height: size.height * 0.14,
                 width: size.width,
                 child: Padding(
@@ -35,72 +37,41 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.change_history,
                             size: 32.0,
                             color: Color(0xff64FFDA),
                           ),
                           onPressed: () {}),
-                      Spacer(),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: DefaultTabController(
-                            length: 4,
-                            child: TabBar(
-                              indicatorColor: Colors.transparent,
-                              onTap: (index) async {},
-                              tabs: const [
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'About',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Experience',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Project',
-                                  ),
-                                ),
-                                Tab(
-                                  child: AppBarTitle(
-                                    text: 'Contact Us',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      const Spacer(),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: Card(
                           elevation: 4.0,
-                          color: Color(0xff64FFDA),
+                          color: const Color(0xff64FFDA),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(0.85),
+                            margin: const EdgeInsets.all(0.85),
                             height: size.height * 0.07,
                             width: size.height * 0.20,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: Color(0xff0A192F),
+                              color: const Color(0xff0A192F),
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             child: TextButton(
-                              onPressed: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
+                              onPressed: () {
+                                method.launchURL(
+                                    "https://github.com/ananthu6d/GetterSetter");
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(
                                   horizontal: 8.0,
                                 ),
                                 child: Text(
-                                  "Resume",
+                                  "SourceCode",
                                   style: TextStyle(
                                     color: Color(0xff64FFDA),
                                   ),
@@ -118,45 +89,38 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   //Social Icon
-                  Container(
-                    width: size.width * 0.09,
+                  SizedBox(
+                    width: size.width * 0.05,
                     height: size.height - 82,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                            icon: FaIcon(FontAwesomeIcons.github),
-                            color: Color(0xffffA8B2D1),
+                            icon: const FaIcon(FontAwesomeIcons.github),
+                            color: const Color(0xffffa8b2d1),
                             iconSize: 16.0,
                             onPressed: () {
-                              method.launchURL("https://github.com/champ96k");
+                              method.launchURL("https://github.com/ananthu6d/");
                             }),
                         IconButton(
-                            icon: FaIcon(FontAwesomeIcons.twitter),
-                            color: Color(0xffffA8B2D1),
-                            iconSize: 16.0,
-                            onPressed: () {
-                              method.launchURL("https://twitter.com/champ_96k");
-                            }),
-                        IconButton(
-                          icon: FaIcon(FontAwesomeIcons.linkedin),
-                          color: Color(0xffffA8B2D1),
+                          icon: const FaIcon(FontAwesomeIcons.linkedin),
+                          color: const Color(0xffffa8b2d1),
                           onPressed: () {
                             method.launchURL(
-                                "https://www.linkedin.com/in/tushar-nikam-a29a97131/");
+                                "https://www.linkedin.com/in/ananthusuresh/");
                           },
                           iconSize: 16.0,
                         ),
                         IconButton(
-                            icon: Icon(Icons.call),
-                            color: Color(0xffffA8B2D1),
+                            icon: const Icon(Icons.call),
+                            color: const Color(0xffffa8b2d1),
                             iconSize: 16.0,
                             onPressed: () {
                               method.launchCaller();
                             }),
                         IconButton(
-                            icon: Icon(Icons.mail),
-                            color: Color(0xffffA8B2D1),
+                            icon: const Icon(Icons.mail),
+                            color: const Color(0xffffa8b2d1),
                             iconSize: 16.0,
                             onPressed: () {
                               method.launchEmail();
@@ -173,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                       height: size.height - 82,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -186,39 +150,26 @@ class _HomePageState extends State<HomePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(
-                                        height: size.height * .06,
-                                      ),
-                                      CustomText(
-                                        text: "Hi, my name is",
-                                        textsize: 16.0,
+                                      const CustomText(
+                                        text: "Let's,",
+                                        textsize: 15.0,
                                         color: Color(0xff41FBDA),
                                         letterSpacing: 3.0,
                                       ),
-                                      SizedBox(
-                                        height: 6.0,
+                                      const SizedBox(
+                                        height: 3.0,
                                       ),
-                                      CustomText(
-                                        text: "Tushar Nikam.",
-                                        textsize: 68.0,
+                                      const CustomText(
+                                        text: "GetterSetter.",
+                                        textsize: 30.0,
                                         color: Color(0xffCCD6F6),
                                         fontWeight: FontWeight.w900,
                                       ),
-                                      SizedBox(
-                                        height: 4.0,
-                                      ),
-                                      CustomText(
-                                        text:
-                                            "I build things for the Android and web.",
-                                        textsize: 56.0,
-                                        color:
-                                            Color(0xffCCD6F6).withOpacity(0.6),
-                                        fontWeight: FontWeight.w700,
-                                      ),
+
                                       SizedBox(
                                         height: size.height * .04,
                                       ),
-                                      Wrap(
+                                      const Wrap(
                                         children: [
                                           Text(
                                             "I'm a freelancer based in Nashik, IN specializing in \nbuilding (and occasionally designing) exceptional websites, \napplications, and everything in between.",
@@ -240,8 +191,8 @@ class _HomePageState extends State<HomePage> {
                                         onTap: () {
                                           method.launchEmail();
                                         },
-                                        hoverColor:
-                                            Color(0xff64FFDA).withOpacity(0.2),
+                                        hoverColor: const Color(0xff64FFDA)
+                                            .withOpacity(0.2),
                                         borderRadius:
                                             BorderRadius.circular(4.0),
                                         child: Container(
@@ -250,12 +201,12 @@ class _HomePageState extends State<HomePage> {
                                           width: size.width * 0.14,
                                           decoration: BoxDecoration(
                                             border: Border.all(
-                                              color: Color(0xff64FFDA),
+                                              color: const Color(0xff64FFDA),
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(4.0),
                                           ),
-                                          child: Text(
+                                          child: const Text(
                                             "Get In Touch",
                                             style: TextStyle(
                                               color: Color(0xff64FFDA),
@@ -280,8 +231,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.07,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.04,
                     height: MediaQuery.of(context).size.height - 82,
                     //color: Colors.orange,
                     child: Column(
@@ -290,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                         RotatedBox(
                           quarterTurns: 45,
                           child: Text(
-                            "tusharnikam2021@gmail.com",
+                            "ananthu6d@gmail.com",
                             style: TextStyle(
                               color: Colors.grey.withOpacity(0.6),
                               letterSpacing: 3.0,
