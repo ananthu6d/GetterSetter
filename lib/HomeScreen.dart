@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
       }
     }
     ''';
+
     outputController.text = generatedCode;
   }
 
