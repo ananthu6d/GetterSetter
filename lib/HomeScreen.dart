@@ -1,3 +1,4 @@
+import 'package:GetterSetter/Generator.dart';
 import 'package:GetterSetter/Method.dart';
 import 'package:GetterSetter/Widgets.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   void generateGetterSetter() {
     // Example logic for generating getters and setters (to be expanded):
 
-    if (inputController.text.isEmpty) {
+    if (inputController.text.trim().isEmpty) {
       // Show a Snackbar if the input is empty
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -60,22 +61,26 @@ class _HomePageState extends State<HomePage> {
       );
       return; // Exit the function early
     }
-    String generatedCode = '''
-    // Example Getter and Setter for input:
-    class Example {
-      int _value;
-    
-      int getValue() {
-        return _value;
-      }
-    
-      void setValue(int val) {
-        _value = val;
-      }
-    }
-    ''';
+    MethodGenerator generator = MethodGenerator();
+    String output = generator.generateMethods(inputController.text);
 
-    outputController.text = generatedCode;
+    if (output.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Color.fromARGB(255, 7, 16, 31),
+          content: Text(
+            'Invalid Input!',
+            style: TextStyle(
+              color: Color(0xffffa8b2d1),
+              fontSize: 13.0,
+              letterSpacing: 2.75,
+              wordSpacing: 0.75,
+            ),
+          ),
+        ),
+      );
+    }
+    outputController.text = output;
   }
 
   @override
