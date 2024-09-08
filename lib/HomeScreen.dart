@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         const SnackBar(
           backgroundColor: Color.fromARGB(255, 7, 16, 31),
           content: Text(
-            'Input is empty. Please provide valid input.',
+            'Input is empty. Please provide valid input!',
             style: TextStyle(
               color: Color(0xffffa8b2d1),
               fontSize: 13.0,
