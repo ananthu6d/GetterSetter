@@ -22,7 +22,7 @@ class MethodGenerator {
         "mcfn_set${_capitalizeFirstLetter(_extractAfterUnderscore(varName))}";
     switch (type) {
       case Type.string:
-        return "void $methodName(String CL_${_extractAfterUnderscore(varName)}) { $varName = CL_${_extractAfterUnderscore(varName)}; }\n";
+        return "void $methodName(string CL_${_extractAfterUnderscore(varName)}) { $varName = CL_${_extractAfterUnderscore(varName)}; }\n";
       case Type.char:
         return "void $methodName(char scL_${_extractAfterUnderscore(varName)}) { $varName = scL_${_extractAfterUnderscore(varName)}; }\n";
       case Type.charArray:
