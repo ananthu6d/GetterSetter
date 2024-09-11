@@ -98,7 +98,7 @@ class MethodGenerator {
       Type type;
 
       switch (typeString) {
-        case 'String':
+        case 'string':
           type = Type.string;
           break;
         case 'char':

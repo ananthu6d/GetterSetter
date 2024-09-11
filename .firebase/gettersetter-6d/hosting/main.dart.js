@@ -41012,7 +41012,7 @@ return a},
 HG(a){if(a.length===0)return a
 return a[0].toUpperCase()+B.d.dV(a,1)},
 a_T(a,b){var s=this,r="mcfn_set"+s.HG(s.eb(b))
-switch(a.a){case 0:return"void "+r+"(String CL_"+s.eb(b)+") { "+b+" = CL_"+s.eb(b)+"; }\n"
+switch(a.a){case 0:return"void "+r+"(string CL_"+s.eb(b)+") { "+b+" = CL_"+s.eb(b)+"; }\n"
 case 1:return"void "+r+"(char scL_"+s.eb(b)+") { "+b+" = scL_"+s.eb(b)+"; }\n"
 case 7:return"void "+r+"(char* pscL_"+s.eb(b)+") { strcpy("+b+", pscL_"+s.eb(b)+"); }\n"
 case 2:return"void "+r+"(int siL_"+s.eb(b)+") { "+b+" = siL_"+s.eb(b)+"; }\n"
@@ -41033,8 +41033,7 @@ case 6:return"double "+s+"() { return "+b+"; }\n"
 default:return""}},
 a5K(a){var s,r,q,p,o
 for(s=a.length,r=0,q="";p=a.length,r<p;a.length===s||(0,A.D)(a),++r){o=a[r]
-q+=this.a_T(o.a,o.b)}s=q+"\n\n"
-for(r=0;r<a.length;a.length===p||(0,A.D)(a),++r){o=a[r]
+q+=this.a_T(o.a,o.b)}for(s=q,r=0;r<a.length;a.length===p||(0,A.D)(a),++r){o=a[r]
 s+=this.a_S(o.a,o.b)}return s.charCodeAt(0)==0?s:s},
 a57(a){var s,r,q,p,o,n,m,l,k,j=A.ju("(\\w+)\\s+(\\w+)(\\[\\d+\\])?;",!0,!1).vF(0,a),i=A.b([],t.BX)
 $label0$1:for(s=new A.yH(j.a,j.b,j.c),r=t.Id,q=t.Qz;s.u();){p=s.d
