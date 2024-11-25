@@ -48,7 +48,7 @@ class MethodGenerator {
         "mcfn_get${_capitalizeFirstLetter(_extractAfterUnderscore(varName))}";
     switch (type) {
       case Type.string:
-        return "String $methodName() { return $varName; }\n";
+        return "string $methodName() { return $varName; }\n";
       case Type.char:
         return "char $methodName() { return $varName; }\n";
       case Type.charArray:

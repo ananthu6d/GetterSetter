@@ -41044,7 +41044,7 @@ m=o[2]
 m.toString
 l=o[3]
 if(l==null)l=""
-switch(n){case"String":k=B.Qw
+switch(n){case"string":k=B.Qw
 break
 case"char":k=l.length!==0?B.QF:B.Qx
 break
