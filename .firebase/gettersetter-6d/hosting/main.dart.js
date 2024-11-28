@@ -41022,7 +41022,7 @@ case 5:return"void "+r+"(float fL_"+s.eb(b)+") { "+b+" = fL_"+s.eb(b)+"; }\n"
 case 6:return"void "+r+"(double dL_"+s.eb(b)+") { "+b+" = dL_"+s.eb(b)+"; }\n"
 default:return""}},
 a_S(a,b){var s="mcfn_get"+this.HG(this.eb(b))
-switch(a.a){case 0:return"String "+s+"() { return "+b+"; }\n"
+switch(a.a){case 0:return"string "+s+"() { return "+b+"; }\n"
 case 1:return"char "+s+"() { return "+b+"; }\n"
 case 7:return"char* "+s+"() { return "+b+"; }\n"
 case 2:return"int "+s+"() { return "+b+"; }\n"

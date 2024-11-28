@@ -162,6 +162,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
+                            icon: const FaIcon(FontAwesomeIcons.info),
+                            color: const Color(0xffffa8b2d1),
+                            iconSize: 16.0,
+                            onPressed: () {
+                              method.launchURL(
+                                  "https://docs.google.com/document/d/1x1ZSpSy7DpqHJl1HvwpE7rfsqpQQN5nEem8QAVzKK1I/edit?tab=t.0");
+                            }),
+                        IconButton(
                             icon: const FaIcon(FontAwesomeIcons.github),
                             color: const Color(0xffffa8b2d1),
                             iconSize: 16.0,
