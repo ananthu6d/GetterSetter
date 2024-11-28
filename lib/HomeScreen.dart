@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                                                     filled: true,
                                                     fillColor: Colors.black12,
                                                     hintText:
-                                                        'Enter class varibles..',
+                                                        'Enter member variables..',
                                                     hintStyle: const TextStyle(
                                                       color: Colors.grey,
                                                       fontSize: 16.0,
