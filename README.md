@@ -55,6 +55,7 @@ string mcfn_getAttachCode() { return meC_AttachCode; }
 string mcfn_getGroupPrivateNumber() { return meC_GroupPrivateNumber; }
 
 Supported types:
+======================================
 string,char,char*,int,long,bool,float,double
 
 
